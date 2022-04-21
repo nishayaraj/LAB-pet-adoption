@@ -7,3 +7,12 @@
 .card {
   width: 18rem;
 }
+
+body{
+  text-align: center;
+}
+
+.buttons{
+ display:flex;
+ justify-content: space-around;
+}

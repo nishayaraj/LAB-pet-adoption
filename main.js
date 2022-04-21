@@ -26,7 +26,7 @@ const pets = [
     {
       id:4,
       name: "Coco",
-      color: "Black",
+      color: "yellow",
       specialSkill: "Burps minimally.",
       type: "dog",
       imageUrl: "http://cdn.akc.org/content/article-body-image/funny-pembroke_welsh_corgi.jpg"
@@ -247,14 +247,20 @@ const pets = [
   for(const animal of pets) {
     petString +=
       `<div class="card">
+       <p class="card-text">"${animal.name}"</p>
           <img src="${animal.imageUrl}" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-text">"${animal.name}"</p>
+          <div>${animal.specialSkill}</div>
             <div style="background-color: ${animal.color};">${animal.type}</div>
-            <div>${animal.specialSkill}</div>
+           
           </div>          
       </div>`
   };
   
   const pet = document.querySelector("#pets");
   pet.innerHTML = petString;
+
+
+  function myFunction() {
+    document.getElementById("clickbtn").innerHTML = "Hello World";
+  }
