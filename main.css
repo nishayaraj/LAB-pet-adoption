@@ -1,3 +1,18 @@
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+  width: 18rem;
+}
+
 body{
-  background-color: beige;
+  text-align: center;
+}
+
+.buttons{
+ display:flex;
+ justify-content: space-around;
 }
