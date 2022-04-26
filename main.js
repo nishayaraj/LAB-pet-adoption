@@ -15,7 +15,8 @@ const pets = [
     specialSkill:
       "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
     type: "dino",
-    imageUrl: "https://nationalzoo.si.edu/sites/default/files/styles/480x240_scale_and_crop/public/attractions/dinobot-trex-03.jpg?itok=YRsHp3EX&timestamp=1557239634",
+    imageUrl:
+      "https://nationalzoo.si.edu/sites/default/files/styles/480x240_scale_and_crop/public/attractions/dinobot-trex-03.jpg?itok=YRsHp3EX&timestamp=1557239634",
   },
   {
     id: 3,
@@ -151,7 +152,8 @@ const pets = [
     specialSkill:
       "Does not freak out if you haven’t seen his favorite movie (The Big Lebowski).",
     type: "cat",
-    imageUrl: "https://images.immediate.co.uk/production/volatile/sites/23/2014/10/GettyImages-172050389-8ab8710.jpg?quality=45&resize=768,574",
+    imageUrl:
+      "https://images.immediate.co.uk/production/volatile/sites/23/2014/10/GettyImages-172050389-8ab8710.jpg?quality=45&resize=768,574",
   },
   {
     id: 18,
@@ -177,7 +179,8 @@ const pets = [
     color: "Black",
     specialSkill: "Uses litter box at appropriate hours.",
     type: "cat",
-    imageUrl: "https://animalwellnessmagazine.com/wp-content/uploads/shutterstock_15822262-e1536681040625.jpg",
+    imageUrl:
+      "https://animalwellnessmagazine.com/wp-content/uploads/shutterstock_15822262-e1536681040625.jpg",
   },
   {
     id: 21,
@@ -222,8 +225,7 @@ const pets = [
     color: "Red",
     specialSkill: "Knows the words to 4 rap songs.",
     type: "cat",
-    imageUrl:
-      "https://especiallycats.com/media/9d9-Cat14.jpg",
+    imageUrl: "https://especiallycats.com/media/9d9-Cat14.jpg",
   },
   {
     id: 26,
@@ -319,3 +321,18 @@ const onShowAllPets = () => {
 };
 
 onShowAllPets();
+
+const addPets = (event) => {
+  event.preventDefault();
+  
+  const newPet = {
+    id: document.querySelector("#id").value,
+    name: document.querySelector("#name").value,
+    specialSkill: document.querySelector("#specialSkill").value,
+    type: document.querySelector("#type").value,
+    imageUrl: document.querySelector("#imageUrl").value
+  };
+
+  pets.push(newPet);
+  onShowAllPets();
+}
