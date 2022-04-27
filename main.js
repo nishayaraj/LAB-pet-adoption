@@ -7,6 +7,7 @@ const pets = [
     type: "cat",
     imageUrl:
       "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
+    
   },
   {
     id: 2,
@@ -291,6 +292,8 @@ const onAnimalFilterButtonClick = (animalType) => {
             <div class="card-body">
             <div>${animal.specialSkill}</div>
               <div style="background-color: ${animal.color};">${animal.type}</div>
+              
+            
              
             </div>          
         </div>`;
@@ -311,7 +314,7 @@ const onShowAllPets = () => {
             <div class="card-body">
             <div>${animal.specialSkill}</div>
               <div style="background-color: ${animal.color};">${animal.type}</div>
-             
+              <button type="button" class="btn btn-outline-success" id="deleteBtn--${animal.id}">Delete</button>
             </div>          
         </div>`;
   }
@@ -336,3 +339,15 @@ const addPets = (event) => {
   pets.push(newPet);
   onShowAllPets();
 }
+
+let deleteButton = document.getElementById("pets");
+
+const onDeleteBtnClick = deleteButton.addEventListener('click', (e)=>{
+ if(e.target.id.includes("deleteBtn")){
+   const[method,id] = e.target.id.split("--")
+   console.log(pets.findIndex((item)=>{
+    
+    return parseInt(id) === item.id
+   }));
+ }
+});
