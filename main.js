@@ -7,7 +7,6 @@ const pets = [
     type: "cat",
     imageUrl:
       "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
-    
   },
   {
     id: 2,
@@ -327,27 +326,35 @@ onShowAllPets();
 
 const addPets = (event) => {
   event.preventDefault();
-  
+
   const newPet = {
     id: document.querySelector("#id").value,
     name: document.querySelector("#name").value,
     specialSkill: document.querySelector("#specialSkill").value,
     type: document.querySelector("#type").value,
-    imageUrl: document.querySelector("#imageUrl").value
+    imageUrl: document.querySelector("#imageUrl").value,
   };
 
   pets.push(newPet);
   onShowAllPets();
-}
+};
 
-let deleteButton = document.getElementById("pets");
+const petsContainer = document.getElementById("pets");
 
-const onDeleteBtnClick = deleteButton.addEventListener('click', (e)=>{
- if(e.target.id.includes("deleteBtn")){
-   const[method,id] = e.target.id.split("--")
-   console.log(pets.findIndex((item)=>{
-    
-    return parseInt(id) === item.id
-   }));
- }
-});
+const petsContainerClickHandler = (e) => {
+  console.log(e.target.id);
+  // code to identify if clicked elecment is delete button:
+  if (e.target.id.includes("deleteBtn")) {
+    const [method, id] = e.target.id.split("--"); //const [method, id] =  [deleteBtn, 2]
+
+    const indexOfItemToDelete = pets.findIndex(
+      (item) => parseInt(id) === item.id
+    );
+
+    pets.splice(indexOfItemToDelete, 1);
+
+    onShowAllPets();
+  }
+};
+
+petsContainer.addEventListener('click', petsContainerClickHandler);
